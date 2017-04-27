@@ -1,0 +1,37 @@
+server:
+  port: 9001
+
+server.contextPath: /oauth-server  
+security:
+  basic:
+    enabled: false
+#---
+
+spring:
+# profiles: dev
+  datasource:
+   driver-class-name: org.h2.Driver
+   username: sa
+   password: 
+   platform: org.hibernate.dialect.H2Dialect
+   url: jdbc:h2:~/oauth2Db;MODE=ORACLE;IGNORECASE=TRUE;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+  application:
+    name: oauth2-server
+
+#security
+keystore:
+  password: mySecretKey
+  jks.location: jwt.jks
+        
+        
+
+#---
+
+
+    
+    
+    
+  
+
+
+ 

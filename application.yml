@@ -1,0 +1,41 @@
+spring:
+  sleuth:
+    rxjava:
+      schedulers:
+        hook:
+          enabled: false
+  zipkin:
+    baseUrl: ${ZIPKIN_SERVER:http://localhost:9411/}
+  data:
+    rest:
+      detection-strategy: annotated
+      basePath: /repositories
+logging:
+  config: classpath:logback.xml
+  
+management:
+  security:
+    enabled : false
+eureka:
+  client:
+    enabled: true
+    serviceUrl:
+      defaultZone: ${EUREKA_SERVER:http://localhost:8761/eureka/}
+  instance:
+    prefer-ip-address: true
+health:
+  config:
+    enabled: false
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 3000 # 3 Segundos de timeout para las peticiones con @FeignClient
+        timeout:
+          enabled: true
+      circuitBreaker:
+        enabled: true
+      fallback:
+        enabled: true 
