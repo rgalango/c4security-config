@@ -20,7 +20,7 @@ spring:
 
 #security
 keystore:
-  password: mySecretKey
+  password: foobar
   jks.location: jwt.jks
         
         
